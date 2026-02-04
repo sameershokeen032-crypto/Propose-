@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:background 1s ease;
+    overflow:hidden;
+}
+
+/* Floating Hearts */
+.heart{
+    position:absolute;
+    bottom:-20px;
+    color:rgba(255,255,255,0.85);
+    font-size:22px;
+    animation:floatUp 6s linear infinite;
+}
+@keyframes floatUp{
+    0%{transform:translateY(0) scale(1); opacity:1;}
+    100%{transform:translateY(-110vh) scale(1.5); opacity:0;}
+}
+
+/* Slides */
+.slide{
+    display:none;
+    max-width:420px;
+    padding:30px;
+    text-align:center;
+    background:rgba(255,255,255,0.18);
+    border-radius:20px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.3);
+    color:#fff;
+    animation:fadeSlide 0.9s ease;
+    z-index:2;
+}
+.slide.active{display:block;}
+
+h1{margin-bottom:15px;}
+p{font-size:18px; line-height:1.5;}
+
+button{
+    margin-top:22px;
+    padding:10px 28px;
+    border:none;
+    border-radius:25px;
+    background:#fff;
+    color:#ff4b6e;
+    font-size:16px;
+    cursor:pointer;
+}
+button:hover{transform:scale(1.1);}
+
+#no{
+    position:absolute;
+    background:#eee;
+    color:#333;
+}
+
+@keyframes fadeSlide{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active">
+    <h1>Hey… ❤️</h1>
+    <p>Ek sawal hai…<br>par usse pehle<br>ek choti si baat sunogi?</p>
+    <button onclick="next()">Next ➡️</button>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide">
+    <h1>Sach Bataun? 🤍</h1>
+    <p>Kuch log bas log nahi hote…<br>woh zindagi ka sukoon ban jaate hain ✨</p>
+    <button onclick="next()">Next ➡️</button>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+    <h1>Moments 💫</h1>
+    <p>Tumhari hasi,<br>tumhari baatein…<br>sab kuch special lagta hai 💖</p>
+    <button onclick="next()">Next ➡️</button>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide">
+    <h1>Confession 🙈</h1>
+    <p>Dheere-dheere tum<br>meri aadat nahi,<br>meri zarurat ban gayi ho ❤️</p>
+    <button onclick="next()">Next ➡️</button>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide">
+    <h1>Promise 🌸</h1>
+    <p>Main perfect nahi hoon,<br>par tumhare saath<br>hamesha loyal rahunga 💕</p>
+    <button onclick="next()">Next ➡️</button>
+</div>
+
+<!-- Slide 6 -->
+<div class="slide">
+    <h1>One Question 💍</h1>
+    <p>Will you be mine forever? ❤️</p>
+    <button onclick="next()">YES 😍</button>
+    <button id="no" onmouseover="run()">NO 😜</button>
+</div>
+
+<!-- Slide 7 -->
+<div class="slide">
+    <h1>She Said YES 😭❤️</h1>
+    <p>
+        Ab yeh sirf proposal nahi,<br>
+        hamari kahani ki shuruaat hai 💖✨
+    </p>
+    <button onclick="next()">Next ➡️</button>
+</div>
+
+<!-- Slide 8 -->
+<div class="slide">
+    <h1>For You 💌</h1>
+    <p>I have written something for you ✨</p>
+    <button onclick="next()">Next ➡️</button>
+</div>
+
+<!-- Slide 9 -->
+<div class="slide">
+    <h1> Mere dil ke ye lafz hi sabse keemti hain💖</h1>
+    <div style="margin-top:20px; display:flex; gap:15px; justify-content:center;">
+        <div>
+            <img src="https://i.postimg.cc/bJPnZ4QZ/Picsart-26-02-02-12-28-22-835.jpg" style="width:130px; border-radius:15px;">
+        </div>
+        <div>
+            <img src="https://i.postimg.cc/gJ4Wv667/Picsart-26-02-02-12-24-00-499.jpg" style="width:130px; border-radius:15px;">
+        </div>
+    </div>
+</div>
+
+<script>
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+
+const backgrounds = [
+    "linear-gradient(135deg,#ff758c,#ff7eb3)",
+    "linear-gradient(135deg,#89f7fe,#66a6ff)",
+    "linear-gradient(135deg,#fbc2eb,#a6c1ee)",
+    "linear-gradient(135deg,#fddb92,#d1fdff)",
+    "linear-gradient(135deg,#fda085,#f6d365)",
+    "linear-gradient(135deg,#ff9a9e,#fad0c4)",
+    "linear-gradient(135deg,#ff6a88,#ff99ac)",
+    "linear-gradient(135deg,#cfd9df,#e2ebf0)",
+    "linear-gradient(135deg,#ffecd2,#fcb69f)"
+];
+
+document.body.style.background = backgrounds[0];
+
+function next(){
+    slides[index].classList.remove('active');
+    index++;
+    slides[index].classList.add('active');
+    document.body.style.background = backgrounds[index];
+}
+
+function run(){
+    let no = document.getElementById("no");
+    no.style.left = Math.random()*(window.innerWidth-100)+"px";
+    no.style.top = Math.random()*(window.innerHeight-50)+"px";
+}
+
+/* Floating Hearts */
+setInterval(()=>{
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),7000);
+},400);
+</script>
+
+</body>
+</html>
+    
+  </body>
+  
+</html>
